@@ -1,0 +1,23 @@
+{
+  "name": "humongo",
+  "version": "0.0.1",
+  "description": "ORM for any DB",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/codydaig/humongo.git"
+  },
+  "author": "Cody B. Daig",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codydaig/humongo/issues"
+  },
+  "homepage": "https://github.com/codydaig/humongo#readme",
+  "dependencies": {
+    "cassandra-driver": "^2.1.0",
+    "mongodb": "^2.0.33"
+  }
+}
