@@ -3,11 +3,9 @@
 var handleModels = require('./lib/handleModels');
 var handleConnections = require('./lib/handleConnections');
 
-var cassandra = require('./drivers/cassandra');
-
 var humongo = function() {
-  this.models = {};
   this.connections = {};
+  this.models = {};
 };
 
 humongo.prototype.newConnection = handleConnections.newConnection;
