@@ -66,10 +66,15 @@ test('The Generic Humongo Object', function(t) {
   t.test('Test Models', function(modelTest) {
     var model1 = new humongo.model('model1', {'name': {type: 'String', required: 'Name is required'}}, {});
     modelTest.ok(model1, 'The new Model should not Error out');
-    db.registerModel(model1);
+    modelTest.doesNotThrow(function() {db.registerModel(model1) }, 'Should not throw an error on registration');
     modelTest.countObjectKeys(db.listModels(), 1, 'db.models should only have 1 item');
     modelTest.strictSame(db.getModel('model1'), model1, 'Models should be identical');
     modelTest.strictSame(model1.getName(), 'model1', 'Model name should be equal');
+
+    modelTest.throws(function() {new humongo.model()}, 'Should throw error since no name was defined');
+    modelTest.throws(function() {new humongo.model('')}, 'Should throw error since no name was set');
+
+    modelTest.throws(function() {new humongo.model('model2')}, 'Should throw error since no connection was defined');
 
     modelTest.end();
   });
