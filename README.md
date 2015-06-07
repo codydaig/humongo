@@ -1,6 +1,6 @@
 # HUMONGO
 
-[![Coverage Status](https://coveralls.io/repos/codydaig/humongo/badge.svg)](https://coveralls.io/r/codydaig/humongo)
+[![Build Status](https://travis-ci.org/codydaig/humongo.svg?branch=master)](https://travis-ci.org/codydaig/humongo) [![Coverage Status](https://coveralls.io/repos/codydaig/humongo/badge.svg)](https://coveralls.io/r/codydaig/humongo)
 
 ### Installation
 ```
