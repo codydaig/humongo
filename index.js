@@ -9,6 +9,7 @@ var humongo = function() {
 };
 
 humongo.prototype.newConnection = handleConnections.newConnection;
+humongo.prototype.getConnection = handleConnections.getConnection;
 humongo.prototype.listConnections = handleConnections.listConnections;
 humongo.prototype.addConnection = handleConnections.addConnection;
 

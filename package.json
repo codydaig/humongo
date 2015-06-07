@@ -4,7 +4,7 @@
   "description": "ORM for any DB",
   "main": "index.js",
   "scripts": {
-    "test": "tap test/*.js"
+    "test": "tap test/main.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "dependencies": {
     "cassandra-driver": "^2.1.0",
     "mongodb": "^2.0.33",
-    "tap": "^1.2.0"
+    "tap": "^1.2.0",
+    "underscore": "^1.8.3"
   }
 }
