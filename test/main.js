@@ -38,15 +38,9 @@ test('The Generic Humongo Object', function(t) {
     initializedTest.strictSame(db.listModels(), {}, 'The list of Models should be empty');
   });
 
-  t.test('Test the Cassandra Driver', function(driverTest) {
+  t.test('Test Cassandra Driver', function(driverTest) {
     var connectionOptions = {
       name: 'cassandra1',
-      driver: 'cassandra-driver',
-      hosts: ['127.0.0.1'],
-      database: 'testdb'
-    };
-    var connectionOptions2 = {
-      name: 'cassandra2',
       driver: 'cassandra-driver',
       hosts: ['127.0.0.1'],
       database: 'testdb'
@@ -57,9 +51,27 @@ test('The Generic Humongo Object', function(t) {
     driverTest.countObjectKeys(db.listConnections(), 1, 'db.connections should only have 1 item');
     driverTest.strictSame(db.getConnection(connectionOptions.name), connection, 'The connections should be the same object');
 
+    var connectionOptions2 = {
+      name: 'cassandra2',
+      driver: 'cassandra-driver',
+      hosts: ['127.0.0.1'],
+      database: 'testdb'
+    };
     driverTest.strictNotSame(db.getConnection(connectionOptions.name), db.newConnection(connectionOptions2), 'Should not be the same');
     driverTest.countObjectKeys(db.listConnections(), 2, 'db.connections should only have 2 items');
+
     driverTest.end();
+  });
+
+  t.test('Test Models', function(modelTest) {
+    var model1 = new humongo.model('model1', {'name': {type: 'String', required: 'Name is required'}}, {});
+    modelTest.ok(model1, 'The new Model should not Error out');
+    db.registerModel(model1);
+    modelTest.countObjectKeys(db.listModels(), 1, 'db.models should only have 1 item');
+    modelTest.strictSame(db.getModel('model1'), model1, 'Models should be identical');
+    modelTest.strictSame(model1.getName(), 'model1', 'Model name should be equal');
+
+    modelTest.end();
   });
 
   t.end();
