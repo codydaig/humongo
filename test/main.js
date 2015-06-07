@@ -54,7 +54,7 @@ test('The Generic Humongo Object', function(t) {
         console.log("Connected!");
         yupTest.pass('yay');
       });
-      yupTest.end();
+      //yupTest.end();
     });
     
     
@@ -71,7 +71,10 @@ test('The Generic Humongo Object', function(t) {
     };
     //driverTest.strictNotSame(db.getConnection(connectionOptions.name), db.newConnection(connectionOptions2), 'Should not be the same');
     //driverTest.countObjectKeys(db.listConnections(), 2, 'db.connections should only have 2 items');
-    connection.close();
+    driverTest.test('close', function (closeTest) {
+      connection.close();
+      closeTest.pass('Closed');
+    });
     driverTest.end();
   });
 
@@ -91,5 +94,6 @@ test('The Generic Humongo Object', function(t) {
     modelTest.end();
   });
 
-  t.end();
+  t.endAll();
+  process.exit(0);
 });
