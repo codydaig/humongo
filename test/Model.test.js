@@ -2,12 +2,20 @@
 
 var expect = require('chai').expect;
 
-var Model = require('../lib/Model.js');
-var Schema = require('../lib/Schema.js');
+var Humongo = require('../index.js');
+
+var Model = Humongo.Model;
+var Schema = Humongo.Schema;
 
 describe('Model Tests', function(){
   it('should create a new Model', function(){
     var testSchema = new Schema();
     expect(new Model('test', testSchema)).to.be.an.instanceof(Model);
+  });
+
+  it('should return the model name', function(){
+    var testSchema = new Schema();
+    var model = new Model('test2', testSchema);
+    expect(model.name()).to.equal('test2');
   });
 });
