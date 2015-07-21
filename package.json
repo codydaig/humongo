@@ -4,7 +4,7 @@
   "description": "ORM for any DB",
   "main": "index.js",
   "scripts": {
-    "test": "tap test/main.js"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -17,9 +17,6 @@
   },
   "homepage": "https://github.com/codydaig/humongo#readme",
   "dependencies": {
-    "cassandra-driver": "^2.1.0",
-    "mongodb": "^2.0.33",
-    "tap": "^1.2.0",
-    "underscore": "^1.8.3"
+    "chai": "^3.2.0",
   }
 }
