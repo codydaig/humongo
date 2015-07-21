@@ -4,7 +4,7 @@
   "description": "ORM for any DB",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/codydaig/humongo#readme",
   "dependencies": {
-    "chai": "^3.2.0"
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5"
   }
 }
