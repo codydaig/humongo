@@ -2,7 +2,7 @@
 
 var expect = require('chai').expect;
 
-var humongo = require('../lib/index.js');
+var humongo = require('../index.js');
 
 describe('Basic Tests', function(){
   it('should pass the basic tests', function(){
@@ -17,3 +17,12 @@ describe('Basic Tests', function(){
     expect(new humongo.Model()).to.be.instanceof(humongo.Model);
   });
 });
+
+describe('Humongo Tests', function(){
+  it('should be able to register a model', function(){
+    var testSchema = new humongo.Schema();
+    var testmodel = new humongo.Model('test', testSchema);
+    humongo.registerModel(testmodel);
+    expect(humongo._models['test']).to.equal(testmodel);
+  });
+})

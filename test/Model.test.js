@@ -16,6 +16,6 @@ describe('Model Tests', function(){
   it('should return the model name', function(){
     var testSchema = new Schema();
     var model = new Model('test2', testSchema);
-    expect(model.name()).to.equal('test2');
+    expect(model.get('name')).to.equal('test2');
   });
 });
