@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * Represents a Schema
+ * @constructor
+ */
 var Schema = function(){
   this.obj = {};
 };
