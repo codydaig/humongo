@@ -2,10 +2,11 @@
 
 var expect = require('chai').expect;
 
-var Humongo = require('../index.js');
+var Humongo = require('../lib/Humongo.js');
+var humongo = new Humongo();
 
-var Model = Humongo.Model;
-var Schema = Humongo.Schema;
+var Model = humongo.Model;
+var Schema = humongo.Schema;
 
 describe('Schema Tests', function(){
   var schema; 

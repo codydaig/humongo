@@ -1,5 +1,12 @@
 'use strict';
 
-// Export from Lib
+/**
+ * Require the Humongo Module (The main Module)
+ */
+var Humongo = require('./lib/Humongo.js');
 
-module.exports = require('./lib/humongo.js')
+/**
+ * Exports a new instance of the Humongo Module
+ * since most users will only need one instance of the main object.
+ */
+module.exports = new Humongo();
