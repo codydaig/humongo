@@ -17,7 +17,7 @@ describe('Basic Tests', function(){
     expect(1).to.equal(1);
   });
 
-  xit('should be able to see Connection', function(){
+  it('should be able to see Connection', function(){
     expect(new humongo.Connection()).to.be.instanceof(humongo.Connection);
   })
 
