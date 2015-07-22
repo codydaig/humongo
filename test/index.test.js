@@ -1,9 +1,11 @@
 'use strict';
 
+var path = require('path');
+
 var expect = require('chai').expect;
 var assert = require('chai').assert;
 
-var humongo = require('../index.js');
+var humongo = require(path.resolve('./index.js'));
 
 describe('Index (Initialization) Tests', function(){
   it('should pass the basic tests', function(){

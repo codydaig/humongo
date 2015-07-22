@@ -1,8 +1,10 @@
 'use strict';
 
+var path = require('path');
+
 var expect = require('chai').expect;
 
-var Humongo = require('../lib/Humongo.js');
+var Humongo = require(path.resolve('./lib/Humongo.js'));
 var humongo = new Humongo();
 
 var Model = humongo.Model;

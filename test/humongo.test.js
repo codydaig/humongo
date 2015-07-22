@@ -1,6 +1,8 @@
 'use strict';
 
-var Humongo = require('../lib/humongo.js');
+var path = require('path');
+
+var Humongo = require(path.resolve('./lib/Humongo.js'));
 
 var expect = require('chai').expect;
 var assert = require('chai').assert;
