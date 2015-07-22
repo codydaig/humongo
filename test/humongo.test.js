@@ -5,9 +5,8 @@ var path = require('path');
 var Humongo = require(path.resolve('./lib/Humongo.js'));
 
 var expect = require('chai').expect;
-var assert = require('chai').assert;
 
-describe('Basic Tests', function(){
+describe('Basic Instance Checks', function(){
   var humongo;
   beforeEach(function(){
     humongo = new Humongo();
@@ -40,7 +39,7 @@ describe('Humongo Tests', function(){
     var testFunc = function(){
       humongo.model('test4');
     };
-    assert.throws(testFunc, Error, 'Model does not exist.');
+    expect(testFunc).to.throw('Model does not exist.');
   });
 
   it('should be able to register a model', function(){
@@ -58,7 +57,7 @@ describe('Humongo Tests', function(){
   });
 
   it('should throw an error when no paramaters are passed to model', function(){
-    assert.throws(humongo.model, Error, 'Model requires name to be passed in as a paramater.');
+    expect(humongo.model).to.throw('Model requires name to be passed in as a paramater.');
   });
 
   it('should throw an error when no name is passed to model', function(){
@@ -66,7 +65,7 @@ describe('Humongo Tests', function(){
       var testSchema = new humongo.Schema();
       humongo.model(testSchema);
     };
-    assert.throws(testFunc, Error, 'Model name must be a string!');
+    expect(testFunc).to.throw('Model name must be a string!');
   });
 
   it('should throw an error when a non-string is passed as the name', function(){
@@ -74,14 +73,18 @@ describe('Humongo Tests', function(){
       var testSchema = new humongo.Schema();
       humongo.model(1, testSchema);
     };
-    assert.throws(testFunc, Error, 'Model name must be a string!');
+    expect(testFunc).to.throw('Model name must be a string!');
   });
 
   it('should not matter what order we run the tests in', function(){
     var testFunc = function(){
       humongo.model('test');
     };
-    assert.throws(testFunc, Error, 'Model does not exist.');
+    expect(testFunc).to.throw('Model does not exist.');
+  });
+
+  it('should connect to a cassandra instance without throwing an error', function(){
+    expect(humongo.connect).to.not.throw(new Error());
   });
   
 });

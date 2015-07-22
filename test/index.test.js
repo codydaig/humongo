@@ -3,7 +3,6 @@
 var path = require('path');
 
 var expect = require('chai').expect;
-var assert = require('chai').assert;
 
 var humongo = require(path.resolve('./index.js'));
 
